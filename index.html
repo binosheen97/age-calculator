@@ -78,17 +78,37 @@
         <section class="calculator-section">
             <div class="calculator-card">
                 <div class="input-group">
-                    <label for="birthDate">Date of Birth</label>
-                    <input type="date" id="birthDate" class="date-input" required>
+                    <label>Date of Birth</label>
+                    <div class="date-dropdowns">
+                        <select id="birthMonth" class="date-select">
+                            <option value="">Month</option>
+                        </select>
+                        <select id="birthDay" class="date-select">
+                            <option value="">Day</option>
+                        </select>
+                        <select id="birthYear" class="date-select">
+                            <option value="">Year</option>
+                        </select>
+                    </div>
                 </div>
 
                 <div class="input-group">
-                    <label for="targetDate">Age at the Date of</label>
-                    <input type="date" id="targetDate" class="date-input" required>
+                    <label>Age at the Date of</label>
+                    <div class="date-dropdowns">
+                        <select id="targetMonth" class="date-select">
+                            <option value="">Month</option>
+                        </select>
+                        <select id="targetDay" class="date-select">
+                            <option value="">Day</option>
+                        </select>
+                        <select id="targetYear" class="date-select">
+                            <option value="">Year</option>
+                        </select>
+                    </div>
                 </div>
 
                 <button class="calculate-btn" onclick="calculateAge()">
-                    Calculate Age
+                    🎯 Calculate Age
                 </button>
 
                 <!-- Result Section -->
