@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Age Calculator - Calculate Your Exact Age in Years, Months, Days</title>
+    <meta name="description" content="Free age calculator to calculate your exact age in years, months, days, hours, minutes and seconds. Find out how old you are today or on any specific date.">
+    <meta name="keywords" content="age calculator, calculate age, how old am i, age in days, age in months, date calculator, birth date calculator">
+    <meta name="author" content="Age Calculator">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://yourusername.github.io/age-calculator/">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourusername.github.io/age-calculator/">
+    <meta property="og:title" content="Age Calculator - Calculate Your Exact Age">
+    <meta property="og:description" content="Free age calculator to calculate your exact age in years, months, days, hours, minutes and seconds.">
+    <meta property="og:image" content="https://yourusername.github.io/age-calculator/og-image.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://yourusername.github.io/age-calculator/">
+    <meta property="twitter:title" content="Age Calculator - Calculate Your Exact Age">
+    <meta property="twitter:description" content="Free age calculator to calculate your exact age in years, months, days, hours, minutes and seconds.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    
+    <!-- Schema.org markup for Google -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Age Calculator",
+        "description": "Calculate your exact age in years, months, days, hours, minutes and seconds",
+        "url": "https://yourusername.github.io/age-calculator/",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "Any",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <h1 class="logo">🎂 Age Calculator</h1>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>Age Calculator</h1>
+            <p class="subtitle">Calculate your exact age in years, months, days, hours, minutes and seconds</p>
+        </section>
+
+        <!-- Calculator Section -->
+        <section class="calculator-section">
+            <div class="calculator-card">
+                <div class="input-group">
+                    <label for="birthDate">Date of Birth</label>
+                    <input type="date" id="birthDate" class="date-input" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="targetDate">Age at the Date of</label>
+                    <input type="date" id="targetDate" class="date-input" required>
+                </div>
+
+                <button class="calculate-btn" onclick="calculateAge()">
+                    Calculate Age
+                </button>
+
+                <!-- Result Section -->
+                <div id="result" class="result-section" style="display: none;">
+                    <h2>Your Age</h2>
+                    <div class="age-display">
+                        <div class="age-main">
+                            <span class="age-number" id="ageYears">0</span>
+                            <span class="age-label">Years</span>
+                        </div>
+                        <div class="age-parts">
+                            <span id="ageMonths">0</span> Months
+                            <span id="ageDays">0</span> Days
+                        </div>
+                    </div>
+
+                    <!-- Detailed Breakdown -->
+                    <div class="detailed-breakdown">
+                        <h3>Detailed Age Breakdown</h3>
+                        <div class="breakdown-grid">
+                            <div class="breakdown-item">
+                                <span class="breakdown-value" id="totalMonths">0</span>
+                                <span class="breakdown-label">Total Months</span>
+                            </div>
+                            <div class="breakdown-item">
+                                <span class="breakdown-value" id="totalWeeks">0</span>
+                                <span class="breakdown-label">Total Weeks</span>
+                            </div>
+                            <div class="breakdown-item">
+                                <span class="breakdown-value" id="totalDays">0</span>
+                                <span class="breakdown-label">Total Days</span>
+                            </div>
+                            <div class="breakdown-item">
+                                <span class="breakdown-value" id="totalHours">0</span>
+                                <span class="breakdown-label">Total Hours</span>
+                            </div>
+                            <div class="breakdown-item">
+                                <span class="breakdown-value" id="totalMinutes">0</span>
+                                <span class="breakdown-label">Total Minutes</span>
+                            </div>
+                            <div class="breakdown-item">
+                                <span class="breakdown-value" id="totalSeconds">0</span>
+                                <span class="breakdown-label">Total Seconds</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Next Birthday -->
+                    <div class="next-birthday" id="nextBirthday" style="display: none;">
+                        <h3>🎉 Next Birthday</h3>
+                        <p id="birthdayInfo"></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ad Placeholder - Replace with your AdSense code -->
+            <div class="ad-placeholder">
+                <p>Advertisement Space</p>
+                <!-- Google AdSense code will go here -->
+                <!-- <ins class="adsbygoogle" ... ></ins> -->
+            </div>
+        </section>
+
+        <!-- SEO Content Section -->
+        <section class="content-section">
+            <article>
+                <h2>How to Use the Age Calculator</h2>
+                <p>Our age calculator helps you find out exactly how old you are in years, months, days, and even seconds. Simply enter your date of birth and the date you want to calculate your age for (today or any future/past date).</p>
+                
+                <h3>Features</h3>
+                <ul>
+                    <li><strong>Precise Calculation:</strong> Get your exact age down to the second</li>
+                    <li><strong>Flexible Dates:</strong> Calculate age for any date, past or future</li>
+                    <li><strong>Next Birthday:</strong> Find out when your next birthday is and how many days until then</li>
+                    <li><strong>Multiple Units:</strong> See your age in years, months, weeks, days, hours, minutes, and seconds</li>
+                </ul>
+
+                <h3>Why Calculate Your Age?</h3>
+                <p>Knowing your exact age can be useful for many purposes:</p>
+                <ul>
+                    <li>Filling out official forms and documents</li>
+                    <li>Planning milestone birthday celebrations</li>
+                    <li>Calculating age for legal or insurance purposes</li>
+                    <li>Fun trivia about how many days you've been alive</li>
+                    <li>Planning retirement or education milestones</li>
+                </ul>
+
+                <h3>How Age is Calculated</h3>
+                <p>Age is calculated by finding the difference between your birth date and the target date. The calculator accounts for leap years and varying month lengths to give you the most accurate result possible.</p>
+
+                <h3>Frequently Asked Questions</h3>
+                <div class="faq">
+                    <h4>How accurate is this age calculator?</h4>
+                    <p>Our calculator is 100% accurate and accounts for leap years, different month lengths, and time zones.</p>
+
+                    <h4>Can I calculate someone else's age?</h4>
+                    <p>Yes! Simply enter any birth date and target date to calculate anyone's age.</p>
+
+                    <h4>Why do I see decimal values in some units?</h4>
+                    <p>The calculator shows precise values. For example, if you're between months, it will show the partial month value.</p>
+
+                    <h4>Is this age calculator free to use?</h4>
+                    <p>Yes, this age calculator is completely free with no hidden charges or registration required.</p>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Age Calculator. All rights reserved.</p>
+            <p>Free Age Calculator Tool - Calculate Your Exact Age Online</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
