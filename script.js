@@ -1,26 +1,86 @@
-// Set today's date as default for target date
+// Populate dropdowns on page load
 document.addEventListener('DOMContentLoaded', function() {
-    const today = new Date().toISOString().split('T')[0];
-    document.getElementById('targetDate').value = today;
+    populateDropdowns();
+    setTodayAsDefault();
 });
 
+function populateDropdowns() {
+    const months = [
+        { value: '1', name: 'January' },
+        { value: '2', name: 'February' },
+        { value: '3', name: 'March' },
+        { value: '4', name: 'April' },
+        { value: '5', name: 'May' },
+        { value: '6', name: 'June' },
+        { value: '7', name: 'July' },
+        { value: '8', name: 'August' },
+        { value: '9', name: 'September' },
+        { value: '10', name: 'October' },
+        { value: '11', name: 'November' },
+        { value: '12', name: 'December' }
+    ];
+
+    // Populate month dropdowns
+    const birthMonth = document.getElementById('birthMonth');
+    const targetMonth = document.getElementById('targetMonth');
+    
+    months.forEach(month => {
+        birthMonth.add(new Option(month.name, month.value));
+        targetMonth.add(new Option(month.name, month.value));
+    });
+
+    // Populate day dropdowns
+    const birthDay = document.getElementById('birthDay');
+    const targetDay = document.getElementById('targetDay');
+    
+    for (let i = 1; i <= 31; i++) {
+        birthDay.add(new Option(i, i));
+        targetDay.add(new Option(i, i));
+    }
+
+    // Populate year dropdowns
+    const birthYear = document.getElementById('birthYear');
+    const targetYear = document.getElementById('targetYear');
+    const currentYear = new Date().getFullYear();
+    
+    for (let i = currentYear; i >= 1900; i--) {
+        birthYear.add(new Option(i, i));
+    }
+    
+    for (let i = currentYear + 10; i >= 1900; i--) {
+        targetYear.add(new Option(i, i));
+    }
+}
+
+function setTodayAsDefault() {
+    const today = new Date();
+    document.getElementById('targetMonth').value = today.getMonth() + 1;
+    document.getElementById('targetDay').value = today.getDate();
+    document.getElementById('targetYear').value = today.getFullYear();
+}
+
 function calculateAge() {
-    const birthDateInput = document.getElementById('birthDate').value;
-    const targetDateInput = document.getElementById('targetDate').value;
+    const birthMonth = document.getElementById('birthMonth').value;
+    const birthDay = document.getElementById('birthDay').value;
+    const birthYear = document.getElementById('birthYear').value;
+    
+    const targetMonth = document.getElementById('targetMonth').value;
+    const targetDay = document.getElementById('targetDay').value;
+    const targetYear = document.getElementById('targetYear').value;
 
     // Validation
-    if (!birthDateInput) {
-        alert('Please enter your date of birth');
+    if (!birthMonth || !birthDay || !birthYear) {
+        alert('Please select your complete date of birth');
         return;
     }
 
-    if (!targetDateInput) {
-        alert('Please enter the target date');
+    if (!targetMonth || !targetDay || !targetYear) {
+        alert('Please select the complete target date');
         return;
     }
 
-    const birthDate = new Date(birthDateInput);
-    const targetDate = new Date(targetDateInput);
+    const birthDate = new Date(birthYear, birthMonth - 1, birthDay);
+    const targetDate = new Date(targetYear, targetMonth - 1, targetDay);
 
     // Validate that target date is not before birth date
     if (targetDate < birthDate) {
@@ -155,13 +215,3 @@ function displayNextBirthday(birthDate, currentDate) {
         That's in <strong>${timeString}</strong>!`;
     document.getElementById('nextBirthday').style.display = 'block';
 }
-
-// Allow Enter key to calculate
-document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('birthDate').addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') calculateAge();
-    });
-    document.getElementById('targetDate').addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') calculateAge();
-    });
-});
